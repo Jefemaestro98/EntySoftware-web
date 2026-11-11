@@ -87,3 +87,57 @@ export const pos = {
     text: '¿Atiendes solo tu puesto? Vende directo, sin mesas ni meseros, y apaga o enciende la cocina según lo necesites.',
   },
 }
+
+export const purpose = {
+  number: 4,
+  label: 'PARA QUÉ EXISTIMOS',
+  title: 'Para que el pequeño negocio tenga la misma tecnología que el grande.',
+  mission: {
+    title: 'Misión',
+    text: 'Ayudar a negocios de comida y emprendedores colombianos a ordenar su operación diaria con software sencillo, confiable y acompañado de soporte cercano.',
+  },
+  vision: {
+    title: 'Visión',
+    text: 'Ser la opción de confianza en software para restaurantes y comercios del Valle del Cauca y, desde ahí, del resto de Colombia.',
+  },
+  values: [
+    { title: 'Simplicidad', text: 'Pantallas claras que cualquier persona del equipo aprende rápido.' },
+    { title: 'Cercanía', text: 'Hablas directamente con quienes construyen el software.' },
+    { title: 'Mejora continua', text: 'El sistema crece con tu negocio: actualizaciones y nuevas funciones.' },
+    { title: 'Responsabilidad', text: 'Cuidamos tu información y la de tus clientes.' },
+  ],
+}
+
+export const plans = {
+  number: 5,
+  label: 'PLANES ENTYPOS',
+  title: 'Una suscripción mensual, sin pagar todo de una vez.',
+  text: 'Adaptamos EntyPOS a tu negocio y lo mantenemos funcionando: servidor, actualizaciones y soporte incluidos en tu plan.',
+  items: [
+    { name: 'Básico', price: '[PRECIO]', text: 'Historial y descarga de los registros del día.', featured: false },
+    { name: 'Plata', price: '[PRECIO]', text: 'Historial y descarga de la semana completa.', featured: true },
+    { name: 'Oro', price: '[PRECIO]', text: 'Historial y descarga del mes completo.', featured: false },
+  ],
+}
+
+// ---------- Redes y contacto ----------
+// Cambia estos datos por los reales
+export const social = {
+  whatsappNumber: '57[TU NÚMERO]', // 57 + número, sin espacios ni +. Ej: '573001234567'
+  whatsappMessage: 'Hola EntySoftware, quiero información sobre sus servicios.',
+  instagramUser: '[TU_USUARIO]', // sin @. Ej: 'entysoftware'
+}
+
+export const links = {
+  whatsapp: `https://wa.me/${social.whatsappNumber}?text=${encodeURIComponent(social.whatsappMessage)}`,
+  instagram: `https://instagram.com/${social.instagramUser}`,
+}
+
+export const contact = {
+  title: '¿Tienes un negocio y una idea? Hablemos.',
+  text: 'Te mostramos EntyPOS funcionando o escuchamos lo que necesitas construir.',
+}
+
+export const footer = {
+  place: 'Valle del Cauca, Colombia'
+}

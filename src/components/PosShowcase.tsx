@@ -61,7 +61,7 @@ function Pasarela() {
           {pos.modules.map((m, i) => (
             <article
               key={m.title}
-              className="flex h-full w-[70vw] max-w-[880px] shrink-0 flex-col justify-between border-l border-line pr-16 pl-10"
+              className="flex h-full w-[70vw] max-w-220 shrink-0 flex-col justify-between border-l border-line pr-16 pl-10"
             >
               <span className="font-mono text-[clamp(72px,10vw,160px)] leading-none font-bold text-accent">
                 {pad(i + 1)}
@@ -91,7 +91,7 @@ function Carrusel({ className = '' }: { className?: string }) {
         {pos.modules.map((m, i) => (
           <article
             key={m.title}
-            className="flex min-h-[340px] w-[85vw] max-w-[420px] shrink-0 snap-start flex-col justify-between border-l border-line py-2 pl-6"
+            className="flex min-h-85 w-[85vw] max-w-105 shrink-0 snap-start flex-col justify-between border-l border-line py-2 pl-6"
           >
             <span className="font-mono text-7xl leading-none font-bold text-accent">{pad(i + 1)}</span>
             <div>
