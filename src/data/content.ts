@@ -28,3 +28,19 @@ export const posDemo = {
   total: '[TOTAL]',
   accion: 'Enviar a cocina',
 }
+
+export const about = {
+  number: 1,
+  label: 'QUIÉNES SOMOS',
+  title: 'Un equipo pequeño, cercano y técnico.',
+  paragraphs: [
+    'EntySoftware es una marca de desarrollo de software del Valle del Cauca, Colombia. Nacimos como un equipo de hermanos: uno construye las pantallas y la experiencia de uso; el otro, el servidor, la base de datos y la seguridad. Juntos cubrimos el producto de punta a punta.',
+    'Conocemos de cerca el día a día de un negocio de comidas: la hora pico, el pedido que se pierde, la caja que no cuadra al cierre. Por eso construimos herramientas que se entienden desde el primer uso y que funcionan en el celular, la tablet o el computador que ya tienes.',
+  ],
+  stack: [
+    { area: 'Frontend', tech: 'React · TypeScript · Tailwind · PWA' },
+    { area: 'Backend', tech: 'Java · Spring Boot · MySQL · JWT' },
+  ],
+}
+
+export const marquee = ['Punto de venta', 'Tiendas en línea', 'Software a la medida', 'Hecho en Colombia']
