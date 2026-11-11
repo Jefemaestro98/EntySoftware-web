@@ -44,3 +44,26 @@ export const about = {
 }
 
 export const marquee = ['Punto de venta', 'Tiendas en línea', 'Software a la medida', 'Hecho en Colombia']
+
+export const services = {
+  number: 2,
+  label: 'QUÉ HACEMOS',
+  title: 'Tres formas de poner la tecnología a trabajar para ti.',
+  items: [
+    {
+      title: 'Sistemas de punto de venta',
+      text: 'Como EntyPOS, nuestro primer proyecto: toma de pedidos, mesas, cocina, caja y cierre del día para restaurantes y comidas rápidas.',
+      href: '#entypos',
+    },
+    {
+      title: 'Tiendas en línea',
+      text: 'Ecommerce para que tus clientes vean tu catálogo y te compren desde cualquier lugar, a cualquier hora.',
+      href: '#contacto',
+    },
+    {
+      title: 'Software a la medida',
+      text: 'Si tu proceso no cabe en una herramienta genérica, lo analizamos contigo y construimos la solución que tu negocio necesita.',
+      href: '#contacto',
+    },
+  ],
+}
