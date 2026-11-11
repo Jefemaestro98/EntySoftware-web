@@ -7,15 +7,14 @@ const EASE = [0.22, 1, 0.36, 1] as const
 
 export default function Nav() {
   const { scrollY } = useScroll()
-  const [hidden, setHidden] = useState(false)     // ¿escondido al bajar?
-  const [scrolled, setScrolled] = useState(false) // ¿ya bajamos un poco?
-  const [open, setOpen] = useState(false)         // ¿menú móvil abierto?
+  const [hidden, setHidden] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  // Se ejecuta cada vez que cambia el scroll
   useMotionValueEvent(scrollY, 'change', (y) => {
     const prev = scrollY.getPrevious() ?? 0
     setScrolled(y > 20)
-    setHidden(y > prev && y > 120 && !open) // bajando y pasado 120px → esconder
+    setHidden(y > prev && y > 120 && !open)
   })
 
   const close = () => setOpen(false)
@@ -32,7 +31,6 @@ export default function Nav() {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          {/* Logo */}
           <a href="#inicio" onClick={close} className="flex items-center gap-2.5">
             <span className="grid size-9 place-items-center rounded-lg bg-accent font-display text-xl font-bold text-bg">
               E
@@ -40,14 +38,9 @@ export default function Nav() {
             <span className="font-display text-xl font-bold tracking-tight">EntySoftware</span>
           </a>
 
-          {/* Enlaces en escritorio */}
           <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
             {nav.links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted transition-colors hover:text-ink"
-              >
+              <a key={link.href} href={link.href} className="text-sm text-muted transition-colors hover:text-ink">
                 {link.label}
               </a>
             ))}
@@ -59,7 +52,6 @@ export default function Nav() {
             </a>
           </nav>
 
-          {/* Botón de menú en celular */}
           <button
             type="button"
             onClick={() => setOpen(!open)}
@@ -72,7 +64,6 @@ export default function Nav() {
         </div>
       </motion.header>
 
-      {/* Cortina del menú móvil */}
       <AnimatePresence>
         {open && (
           <motion.div

@@ -1,9 +1,10 @@
 import { useLenis } from './hooks/useLenis'
 import Nav from './components/Nav'
+import Hero from './components/Hero'
 import Reveal from './components/Reveal'
 
+// Secciones de prueba (las iremos reemplazando)
 const pruebas = [
-  { id: 'inicio', titulo: 'Inicio' },
   { id: 'quienes', titulo: 'Quiénes somos' },
   { id: 'que', titulo: 'Qué hacemos' },
   { id: 'entypos', titulo: 'EntyPOS' },
@@ -18,6 +19,7 @@ export default function App() {
     <>
       <Nav />
       <main>
+        <Hero />
         {pruebas.map((s) => (
           <section
             key={s.id}
