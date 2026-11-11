@@ -3,15 +3,14 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
 import Marquee from './components/Marquee'
-import Reveal from './components/Reveal'
 import Services from './components/Services'
 import PosShowcase from './components/PosShowcase'
+import Purpose from './components/Purpose'
+import Plans from './components/Plans'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
-// Secciones de prueba que faltan por construir
-const pruebas = [
-  { id: 'para', titulo: 'Para qué' },
-  { id: 'contacto', titulo: 'Contacto' },
-]
+
 
 export default function App() {
   useLenis()
@@ -25,18 +24,11 @@ export default function App() {
         <Marquee />
         <Services/>
         <PosShowcase/>
-        {pruebas.map((s) => (
-          <section
-            key={s.id}
-            id={s.id}
-            className="flex min-h-screen items-center justify-center border-t border-line"
-          >
-            <Reveal>
-              <h2 className="font-display text-5xl font-bold">{s.titulo}</h2>
-            </Reveal>
-          </section>
-        ))}
+        <Purpose/>
+        <Plans/>
+        <Contact/>
       </main>
+      <Footer/>
     </>
   )
 }
