@@ -5,10 +5,10 @@ import About from './components/About'
 import Marquee from './components/Marquee'
 import Reveal from './components/Reveal'
 import Services from './components/Services'
+import PosShowcase from './components/PosShowcase'
 
 // Secciones de prueba que faltan por construir
 const pruebas = [
-  { id: 'entypos', titulo: 'EntyPOS' },
   { id: 'para', titulo: 'Para qué' },
   { id: 'contacto', titulo: 'Contacto' },
 ]
@@ -24,6 +24,7 @@ export default function App() {
         <About />
         <Marquee />
         <Services/>
+        <PosShowcase/>
         {pruebas.map((s) => (
           <section
             key={s.id}

@@ -67,3 +67,23 @@ export const services = {
     },
   ],
 }
+
+export const pos = {
+  number: 3,
+  label: 'NUESTRO PRIMER PROYECTO',
+  title: 'EntyPOS: todo tu restaurante, en una sola pantalla.',
+  intro:
+    'Una aplicación web instalable (PWA) que funciona en celular, tablet y computador. Pensada para negocios de comida con uno o dos locales, y también para el emprendedor que atiende solo.',
+  modules: [
+    { title: 'Toma de pedidos', text: 'Pedidos por mesa o venta directa, con adiciones y envío a cocina.' },
+    { title: 'Mesas', text: 'Mira qué mesas están libres u ocupadas y agrega productos a una cuenta abierta.' },
+    { title: 'Caja y pagos', text: 'Cobro de cuentas y registro de comprobantes de pago (bauchers).' },
+    { title: 'Apertura y cierre', text: 'Abre el día, ciérralo con su resumen y revisa los registros de cada jornada.' },
+    { title: 'Inventario de insumos', text: 'Stock, ajustes y movimientos; marca productos como agotados al instante.' },
+    { title: 'Administración', text: 'Gestiona productos, categorías y extras, con accesos según el rol de cada usuario.' },
+  ],
+  micro: {
+    title: 'Modo micro-emprendimiento',
+    text: '¿Atiendes solo tu puesto? Vende directo, sin mesas ni meseros, y apaga o enciende la cocina según lo necesites.',
+  },
+}
