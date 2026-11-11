@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-bg: #0B0D0C;
+  --color-surface: #111513;
+  --color-line: #1C211E;
+  --color-ink: #E7ECE9;
+  --color-muted: #A3ABA6;
+  --color-accent: #4ADE80;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
