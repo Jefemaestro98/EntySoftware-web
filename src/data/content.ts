@@ -114,23 +114,23 @@ export const plans = {
   title: 'Una suscripción mensual, sin pagar todo de una vez.',
   text: 'Adaptamos EntyPOS a tu negocio y lo mantenemos funcionando: servidor, actualizaciones y soporte incluidos en tu plan.',
   items: [
-    { name: 'Básico', price: '[PRECIO]', text: 'Historial y descarga de los registros del día.', featured: false },
-    { name: 'Plata', price: '[PRECIO]', text: 'Historial y descarga de la semana completa.', featured: true },
-    { name: 'Oro', price: '[PRECIO]', text: 'Historial y descarga del mes completo.', featured: false },
+    { name: 'Básico', price: '$59.900', text: 'Comidas rápidas, cafeterías y puestos con 1 a 3 personas que quieren dejar el papel', featured: false },
+    { name: 'Plata', price: '$99.900', text: 'Restaurantes con mesero, cocina y más de 40 pedidos al día que necesitan cuadrar caja e inventario', featured: true },
+    { name: 'Oro', price: '$169.900', text: 'Restaurantes establecidos que quieren saber cuánto ganan por plato y por mes', featured: false },
   ],
 }
 
 // ---------- Redes y contacto ----------
 // Cambia estos datos por los reales
 export const social = {
-  whatsappNumber: '57[TU NÚMERO]', // 57 + número, sin espacios ni +. Ej: '573001234567'
+  whatsappNumber: '57[TU NÚMERO]', 
   whatsappMessage: 'Hola EntySoftware, quiero información sobre sus servicios.',
-  instagramUser: '[TU_USUARIO]', // sin @. Ej: 'entysoftware'
+  instagramUser: 'EntySoftware', 
 }
 
 export const links = {
   whatsapp: `https://wa.me/${social.whatsappNumber}?text=${encodeURIComponent(social.whatsappMessage)}`,
-  instagram: `https://instagram.com/${social.instagramUser}`,
+  instagram: `https://www.instagram.com/entysoftware/`,
 }
 
 export const contact = {

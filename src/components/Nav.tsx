@@ -31,11 +31,14 @@ export default function Nav() {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#inicio" onClick={close} className="flex items-center gap-2.5">
-            <span className="grid size-9 place-items-center rounded-lg bg-accent font-display text-xl font-bold text-bg">
-              E
-            </span>
-            <span className="font-display text-xl font-bold tracking-tight">EntySoftware</span>
+          <a href="#inicio" onClick={close} className="flex items-center">
+            <img
+              src="/logo-entysoftware.png"
+              alt="EntySoftware"
+              width={225}
+              height={28}
+              className="h-7 w-auto"
+            />
           </a>
 
           <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
