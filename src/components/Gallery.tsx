@@ -91,7 +91,7 @@ export default function Gallery() {
               type="button"
               onClick={() => setOpen(i)}
               aria-label={`Ver imagen ${i + 1} de ${total}`}
-              className="group block aspect-[4/5] w-[75vw] max-w-85 overflow-hidden rounded-2xl border border-line"
+              className="group block aspect-4/5 w-[75vw] max-w-85 overflow-hidden rounded-2xl border border-line"
             >
               <img
                 src={img.src}
@@ -119,7 +119,7 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setOpen(null)}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-bg/90 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-60 flex items-center justify-center bg-bg/90 p-4 backdrop-blur-md"
           >
             <motion.img
               key={open}
