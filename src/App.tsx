@@ -9,8 +9,8 @@ import Purpose from './components/Purpose'
 import Plans from './components/Plans'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-
-
+import Gallery from './components/Gallery'
+import ChatBot from './components/ChatBot'
 
 export default function App() {
   useLenis()
@@ -26,9 +26,11 @@ export default function App() {
         <PosShowcase/>
         <Purpose/>
         <Plans/>
+        <Gallery/>
         <Contact/>
       </main>
       <Footer/>
+      <ChatBot/>
     </>
   )
 }

@@ -141,3 +141,61 @@ export const contact = {
 export const footer = {
   place: 'Valle del Cauca, Colombia'
 }
+
+export const gallery = {
+  number: 6,
+  label: 'EN INSTAGRAM',
+  title: 'Así contamos lo que hacemos.',
+  images: [
+    { src: '/galeria/carrusel-1-portada.webp', alt: 'EntySoftware, soluciones que impulsan: creamos software para que los negocios trabajen con orden. EntyPOS, Ecommerce y Software a la medida.' },
+    { src: '/galeria/carrusel-2-mapa.webp', alt: 'Mapa de lo que somos: una empresa, cuatro ramas. EntyPOS, Ecommerce, desarrollo a la medida y gastronomía.' },
+    { src: '/galeria/carrusel-3-entypos.webp', alt: 'EntyPOS, punto de venta para negocios gastronómicos: apertura del día, mesas, toma de pedidos, cobro, domicilio y para llevar, comprobantes y cierre de caja.' },
+    { src: '/galeria/carrusel-4-multidispositivo.webp', alt: 'EntyPOS funciona en celular, tablet y computador desde el navegador.' },
+    { src: '/galeria/carrusel-5-mas-alla.webp', alt: 'Más allá del punto de venta: EntyPOS, Ecommerce y software a la medida para restaurantes, cafeterías, comidas rápidas y emprendedores.' },
+    { src: '/galeria/carrusel-6-contacto.webp', alt: '¿Tu negocio encaja en este mapa? Te mostramos EntyPOS, revisamos cómo trabajas y vemos qué se puede digitalizar.' },
+  ],
+}
+
+export const chatbot = {
+  greeting: 'Hola, soy el asistente de EntySoftware. Elige una pregunta o escríbeme.',
+  fallback: 'Esa todavía no la sé responder. Escríbenos por WhatsApp y te ayudamos directamente.',
+  faqs: [
+    {
+      q: '¿Qué es EntyPOS?',
+      keywords: ['entypos', 'pos', 'punto de venta', 'sistema'],
+      a: 'EntyPOS es nuestro sistema de punto de venta para restaurantes, cafeterías y comidas rápidas. Manejas la apertura del día, mesas, pedidos, cobro y cierre de caja.',
+      whatsapp: false,
+    },
+    {
+      q: '¿En qué equipos funciona?',
+      keywords: ['celular', 'tablet', 'computador', 'equipo', 'dispositivo', 'instalar', 'internet'],
+      a: 'Funciona en celular, tablet y computador desde el navegador, con la misma información en todos los equipos.',
+      whatsapp: false,
+    },
+    {
+      q: '¿Qué medios de pago registra?',
+      keywords: ['pago', 'efectivo', 'transferencia', 'nequi', 'daviplata', 'tarjeta', 'cobro'],
+      a: 'Registra cobros en efectivo, tarjeta y transferencia, calcula el cambio y guarda los comprobantes de pagos por Nequi y Daviplata.',
+      whatsapp: false,
+    },
+    {
+      q: '¿Cuánto cuesta?',
+      keywords: ['precio', 'cuesta', 'valor', 'plan', 'mensual', 'cobran', 'tarifa'],
+      a: 'Trabajamos con suscripción mensual: planes Básico, Plata y Oro. Escríbenos y te damos el valor según tu negocio.',
+      whatsapp: true,
+    },
+    {
+      q: '¿Hacen tiendas en línea o software a la medida?',
+      keywords: ['tienda', 'ecommerce', 'pagina', 'web', 'medida', 'aplicacion', 'app'],
+      a: 'Sí. Además de EntyPOS creamos tiendas en línea y software a la medida, según cómo trabaja tu negocio.',
+      whatsapp: true,
+    },
+    {
+      q: 'Quiero una demostración',
+      keywords: ['demo', 'demostracion', 'probar', 'prueba', 'mostrar'],
+      a: '¡Con gusto! Escríbenos por WhatsApp y agendamos una demostración de EntyPOS en tu negocio.',
+      whatsapp: true,
+    },
+  ],
+
+}
