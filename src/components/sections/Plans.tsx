@@ -1,6 +1,6 @@
-import Reveal from './Reveal'
-import SectionLabel from './SectionLabel'
-import { plans } from '../data/content'
+import Reveal from '@/components/ui/Reveal'
+import SectionLabel from '@/components/ui/SectionLabel'
+import { plans } from '@/data/content'
 
 export default function Plans() {
   return (

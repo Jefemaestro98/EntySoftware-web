@@ -1,77 +1,83 @@
-import { useEffect, useRef } from 'react'
-import { motion, useMotionValue, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { Store } from 'lucide-react'
-import Reveal from './Reveal'
-import SectionLabel from './SectionLabel'
-import { pos } from '../data/content'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
+import { Package, Store } from 'lucide-react'
+import Reveal from '@/components/ui/Reveal'
+import SectionLabel from '@/components/ui/SectionLabel'
+import { useTrackDistance } from '@/hooks/useTrackDistance'
+import { pos } from '@/data/content'
+import { pad } from '@/lib/format'
 
-const pad = (n: number) => String(n).padStart(2, '0')
+type Module = (typeof pos.modules)[number]
 
-/* ============================================================
-   PASARELA (escritorio): la sección se fija y el scroll vertical
-   mueve los paneles en horizontal.
-   ============================================================ */
+/* ---------- La imagen de cada módulo (o ícono si aún no hay captura) ---------- */
+function ModuleVisual({ m }: { m: Module }) {
+  return (
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-3xl border border-line bg-surface">
+      {/* Brillo verde suave detrás de la captura */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(74,222,128,0.16),transparent_65%)]"
+      />
+      {m.image ? (
+        <img
+          src={m.image}
+          alt={m.alt}
+          loading="lazy"
+          className="relative max-h-[88%] max-w-[88%] rounded-2xl border border-line object-contain shadow-2xl shadow-black/60"
+        />
+      ) : (
+        <div className="relative flex flex-col items-center gap-4">
+          <span className="grid size-20 place-items-center rounded-2xl border border-accent/30 bg-accent/10 text-accent">
+            <Package size={36} aria-hidden="true" />
+          </span>
+          <p className="font-mono text-xs text-muted">Captura próximamente</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ---------- PASARELA (escritorio) ---------- */
 function Pasarela() {
-  const containerRef = useRef<HTMLDivElement>(null) // la caja alta (400vh)
-  const trackRef = useRef<HTMLDivElement>(null)     // la fila de paneles
+  const containerRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
 
-  // 0 cuando la caja alta empieza arriba, 1 cuando su final llega abajo
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  })
-
-  // Cuántos píxeles hay que mover la fila para llegar al último panel
-  const distance = useMotionValue(0)
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    const measure = () => distance.set(Math.max(0, track.scrollWidth - window.innerWidth))
-    measure()
-
-    const observer = new ResizeObserver(measure)
-    observer.observe(track)
-    window.addEventListener('resize', measure)
-
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('resize', measure)
-    }
-  }, [distance])
-
-  // Progreso (0→1) × distancia = cuánto mover la fila a la izquierda
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] })
+  const distance = useTrackDistance(trackRef)
   const x = useTransform(() => -scrollYProgress.get() * distance.get())
 
   return (
-    <div ref={containerRef} className="relative h-[400vh]">
+    <div ref={containerRef} className="relative h-[500vh]">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-        {/* Barra de progreso */}
         <div className="absolute inset-x-0 top-0 h-px bg-line">
           <motion.div style={{ scaleX: scrollYProgress }} className="h-full origin-left bg-accent" />
         </div>
 
-        {/* Fila de paneles */}
         <motion.div
           ref={trackRef}
           style={{ x }}
-          className="flex h-[62vh] w-max pr-[20vw] pl-[max(24px,calc((100vw-72rem)/2+24px))]"
+          className="flex h-[70vh] w-max gap-10 pr-[15vw] pl-[max(24px,calc((100vw-72rem)/2+24px))]"
         >
           {pos.modules.map((m, i) => (
             <article
               key={m.title}
-              className="flex h-full w-[70vw] max-w-220 shrink-0 flex-col justify-between border-l border-line pr-16 pl-10"
+              className="grid h-full w-[80vw] max-w-260 shrink-0 grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 border-l border-line pl-10"
             >
-              <span className="font-mono text-[clamp(72px,10vw,160px)] leading-none font-bold text-accent">
-                {pad(i + 1)}
-              </span>
-              <div>
-                <h3 className="font-display text-[clamp(32px,4vw,56px)] leading-[1.05] font-bold tracking-tight">
-                  {m.title}
-                </h3>
-                <p className="mt-4 max-w-md text-lg text-muted">{m.text}</p>
+              {/* Texto */}
+              <div className="flex flex-col justify-between py-2">
+                <span className="font-mono text-[clamp(64px,8vw,128px)] leading-none font-bold text-accent">
+                  {pad(i + 1)}
+                </span>
+                <div>
+                  <h3 className="font-display text-[clamp(30px,3.5vw,52px)] leading-[1.05] font-bold tracking-tight">
+                    {m.title}
+                  </h3>
+                  <p className="mt-4 max-w-sm text-lg text-muted">{m.text}</p>
+                </div>
               </div>
+
+              {/* Imagen */}
+              <ModuleVisual m={m} />
             </article>
           ))}
         </motion.div>
@@ -80,23 +86,20 @@ function Pasarela() {
   )
 }
 
-/* ============================================================
-   CARRUSEL (celular o menos movimiento): scroll horizontal
-   nativo con imán (scroll-snap).
-   ============================================================ */
+/* ---------- CARRUSEL (celular o menos movimiento) ---------- */
 function Carrusel({ className = '' }: { className?: string }) {
   return (
     <div className={className}>
       <div className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4">
         {pos.modules.map((m, i) => (
-          <article
-            key={m.title}
-            className="flex min-h-85 w-[85vw] max-w-105 shrink-0 snap-start flex-col justify-between border-l border-line py-2 pl-6"
-          >
-            <span className="font-mono text-7xl leading-none font-bold text-accent">{pad(i + 1)}</span>
+          <article key={m.title} className="flex w-[85vw] max-w-105 shrink-0 snap-start flex-col gap-5">
+            <div className="h-80">
+              <ModuleVisual m={m} />
+            </div>
             <div>
-              <h3 className="font-display text-3xl font-bold tracking-tight">{m.title}</h3>
-              <p className="mt-3 text-muted">{m.text}</p>
+              <span className="font-mono text-sm text-accent">{pad(i + 1)}</span>
+              <h3 className="mt-1 font-display text-2xl font-bold tracking-tight">{m.title}</h3>
+              <p className="mt-2 text-muted">{m.text}</p>
             </div>
           </article>
         ))}
@@ -106,15 +109,12 @@ function Carrusel({ className = '' }: { className?: string }) {
   )
 }
 
-/* ============================================================
-   SECCIÓN COMPLETA
-   ============================================================ */
+/* ---------- SECCIÓN COMPLETA ---------- */
 export default function PosShowcase() {
   const reduce = useReducedMotion()
 
   return (
     <section id="entypos" aria-labelledby="entypos-title" className="border-t border-line">
-      {/* Intro */}
       <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-x-16 gap-y-8 px-6 pt-20 pb-12 md:pt-32 md:pb-16">
         <div className="min-w-0 flex-[1_1_520px]">
           <SectionLabel number={pos.number} label={pos.label} />
@@ -132,26 +132,22 @@ export default function PosShowcase() {
         </Reveal>
       </div>
 
-      {/* Pasarela en escritorio (solo si no se pidió menos movimiento) */}
       {!reduce && (
         <div className="hidden md:block">
           <Pasarela />
         </div>
       )}
-
-      {/* Carrusel en celular (o en todas las pantallas si se pidió menos movimiento) */}
       <Carrusel className={reduce ? '' : 'md:hidden'} />
 
-      {/* Modo micro-emprendimiento */}
       <div className="mx-auto max-w-6xl px-6 pt-12 pb-20 md:pb-32">
         <Reveal>
-          <div className="flex flex-wrap items-center gap-6 border-t border-line pt-10">
+          <div className="flex flex-wrap items-center gap-5 rounded-2xl border border-accent/25 bg-accent/5 p-7">
             <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-accent text-bg">
-              <Store size={24} aria-hidden="true" />
+              <Store size={22} aria-hidden="true" />
             </span>
             <div className="min-w-0 flex-[1_1_400px]">
-              <h3 className="font-display text-2xl font-semibold">{pos.micro.title}</h3>
-              <p className="mt-1 text-muted">{pos.micro.text}</p>
+              <h3 className="font-display text-lg font-semibold">{pos.micro.title}</h3>
+              <p className="mt-1 text-sm text-muted">{pos.micro.text}</p>
             </div>
           </div>
         </Reveal>

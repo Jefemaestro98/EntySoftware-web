@@ -75,12 +75,42 @@ export const pos = {
   intro:
     'Una aplicación web instalable (PWA) que funciona en celular, tablet y computador. Pensada para negocios de comida con uno o dos locales, y también para el emprendedor que atiende solo.',
   modules: [
-    { title: 'Toma de pedidos', text: 'Pedidos por mesa o venta directa, con adiciones y envío a cocina.' },
-    { title: 'Mesas', text: 'Mira qué mesas están libres u ocupadas y agrega productos a una cuenta abierta.' },
-    { title: 'Caja y pagos', text: 'Cobro de cuentas y registro de comprobantes de pago (bauchers).' },
-    { title: 'Apertura y cierre', text: 'Abre el día, ciérralo con su resumen y revisa los registros de cada jornada.' },
-    { title: 'Inventario de insumos', text: 'Stock, ajustes y movimientos; marca productos como agotados al instante.' },
-    { title: 'Administración', text: 'Gestiona productos, categorías y extras, con accesos según el rol de cada usuario.' },
+    {
+      title: 'Toma de pedidos',
+      text: 'Pedidos por mesa o venta directa, con adiciones y envío a cocina.',
+      image: '/modulos/pedidos.webp',
+      alt: 'Pantalla de EntyPOS con la orden actual de la mesa 2, productos, descuento, total y botón Enviar a cocina.',
+    },
+    {
+      title: 'Mesas',
+      text: 'Mira qué mesas están libres u ocupadas y agrega productos a una cuenta abierta.',
+      image: '/modulos/mesas.webp',
+      alt: 'Pantalla de mesas de EntyPOS con 4 libres y 4 ocupadas, además de domicilio y para llevar.',
+    },
+    {
+      title: 'Caja y pagos',
+      text: 'Cobro en efectivo, tarjeta y transferencia con cálculo de cambio, y registro de comprobantes.',
+      image: '/modulos/cobro.webp',
+      alt: 'Pantalla de cobro de EntyPOS con método de pago, monto recibido, cambio y teclado numérico.',
+    },
+    {
+      title: 'Apertura y cierre',
+      text: 'Abre el día con la base de caja y ciérralo con el arqueo: el sistema compara lo esperado con lo contado.',
+      image: '/modulos/cierre.webp',
+      alt: 'Pantalla de cuadre de caja de EntyPOS indicando que todo cuadra, con el conteo físico por billetes.',
+    },
+    {
+      title: 'Inventario de insumos',
+      text: 'Stock, ajustes y movimientos; marca productos como agotados al instante.',
+      image: null,
+      alt: '',
+    },
+    {
+      title: 'Administración',
+      text: 'Gestiona productos, categorías y extras, con accesos según el rol de cada usuario.',
+      image: '/modulos/administracion.webp',
+      alt: 'Vista de computador de EntyPOS con el menú lateral de módulos y el catálogo de productos por categorías.',
+    },
   ],
   micro: {
     title: 'Modo micro-emprendimiento',
@@ -120,18 +150,7 @@ export const plans = {
   ],
 }
 
-// ---------- Redes y contacto ----------
-// Cambia estos datos por los reales
-export const social = {
-  whatsappNumber: '57[TU NÚMERO]', 
-  whatsappMessage: 'Hola EntySoftware, quiero información sobre sus servicios.',
-  instagramUser: 'EntySoftware', 
-}
 
-export const links = {
-  whatsapp: `https://wa.me/${social.whatsappNumber}?text=${encodeURIComponent(social.whatsappMessage)}`,
-  instagram: `https://www.instagram.com/entysoftware/`,
-}
 
 export const contact = {
   title: '¿Tienes un negocio y una idea? Hablemos.',

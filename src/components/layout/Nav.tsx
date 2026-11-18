@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { Menu, X } from 'lucide-react'
-import { nav } from '../../data/content'
+import { nav } from '@/data/content'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 

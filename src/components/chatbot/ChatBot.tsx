@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { MessageCircle, Send, X } from 'lucide-react'
-import { WhatsAppIcon } from './ui/icons'
-import { chatbot, links } from '../data/content'
+import { WhatsAppIcon } from '@/components/ui/icons'
+import { chatbot } from '@/data/content'
+import { links } from '@/data/social'
+import { useHorizontalWheel } from '@/hooks/useHorizontalWheel'
 
 type Msg = { from: 'bot' | 'user'; text: string; whatsapp?: boolean }
 
@@ -35,6 +37,8 @@ export default function ChatBot() {
   const [typing, setTyping] = useState(false)
   const [input, setInput] = useState('')
   const listRef = useRef<HTMLDivElement>(null)
+  const chipsRef = useRef<HTMLDivElement>(null)
+  useHorizontalWheel(chipsRef, open)
 
   // Baja al último mensaje
   useEffect(() => {
@@ -138,7 +142,10 @@ export default function ChatBot() {
             </div>
 
             {/* Preguntas rápidas */}
-            <div className="no-scrollbar flex gap-2 overflow-x-auto border-t border-line px-4 py-3">
+             <div
+              ref={chipsRef}
+              className="no-scrollbar flex gap-2 overflow-x-auto border-t border-line px-4 py-3 mask-[linear-gradient(to_right,black_85%,transparent)]"
+            >
               {chatbot.faqs.map((f) => (
                 <button
                   key={f.q}

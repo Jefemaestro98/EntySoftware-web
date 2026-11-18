@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { hero, posDemo } from '../data/content'
+import { hero, posDemo } from '@/data/content'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 

@@ -1,8 +1,9 @@
+import Magnetic from '@/components/ui/Magnetic'
+import Reveal from '@/components/ui/Reveal'
+import { InstagramIcon, WhatsAppIcon } from '@/components/ui/icons'
+import { contact } from '@/data/content'
+import { links, social } from '@/data/social'
 import { ArrowUpRight } from 'lucide-react'
-import Magnetic from './Magnetic'
-import Reveal from './Reveal'
-import { InstagramIcon, WhatsAppIcon } from './icons'
-import { contact, links, social } from '../data/content'
 
 export default function Contact() {
   return (

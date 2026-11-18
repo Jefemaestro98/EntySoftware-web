@@ -1,16 +1,19 @@
-import { useLenis } from './hooks/useLenis'
-import Nav from './components/Nav'
-import Hero from './components/Hero'
-import About from './components/About'
-import Marquee from './components/Marquee'
-import Services from './components/sections/Services'
-import PosShowcase from './components/PosShowcase'
-import Purpose from './components/Purpose'
-import Plans from './components/Plans'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Gallery from './components/Gallery'
-import ChatBot from './components/ChatBot'
+import { useLenis } from '@/hooks/useLenis'
+
+import Nav from '@/components/layout/Nav'
+import Footer from '@/components/layout/Footer'
+
+import Hero from '@/components/sections/Hero'
+import About from '@/components/sections/About'
+import Marquee from '@/components/sections/Marquee'
+import Services from '@/components/sections/Services'
+import PosShowcase from '@/components/sections/PosShowcase'
+import Purpose from '@/components/sections/Purpose'
+import Plans from '@/components/sections/Plans'
+import Gallery from '@/components/sections/Gallery'
+import Contact from '@/components/sections/Contact'
+
+import ChatBot from '@/components/chatbot/ChatBot'
 
 export default function App() {
   useLenis()
@@ -22,15 +25,15 @@ export default function App() {
         <Hero />
         <About />
         <Marquee />
-        <Services/>
-        <PosShowcase/>
-        <Purpose/>
-        <Plans/>
-        <Gallery/>
-        <Contact/>
+        <Services />
+        <PosShowcase />
+        <Purpose />
+        <Plans />
+        <Gallery />
+        <Contact />
       </main>
-      <Footer/>
-      <ChatBot/>
+      <Footer />
+      <ChatBot />
     </>
   )
 }
