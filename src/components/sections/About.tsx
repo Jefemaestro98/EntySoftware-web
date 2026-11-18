@@ -1,6 +1,6 @@
-import Reveal from './Reveal'
-import SectionLabel from './SectionLabel'
-import { about } from '../data/content'
+import Reveal from '@/components/ui/Reveal'
+import SectionLabel from '@/components/ui/SectionLabel'
+import { about } from '@/data/content'
 
 export default function About() {
   return (

@@ -1,6 +1,6 @@
-import Reveal from './Reveal'
-import SectionLabel from './SectionLabel'
-import { purpose } from '../data/content'
+import Reveal from '@/components/ui/Reveal'
+import SectionLabel from '@/components/ui/SectionLabel'
+import { purpose } from '@/data/content'
 
 export default function Purpose() {
   const pillars = [purpose.mission, purpose.vision]

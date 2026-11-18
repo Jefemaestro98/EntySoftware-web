@@ -1,4 +1,4 @@
-import { marquee } from '../data/content'
+import { marquee } from '@/data/content'
 
 export default function Marquee() {
   return (

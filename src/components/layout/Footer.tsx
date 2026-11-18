@@ -1,5 +1,6 @@
-import { InstagramIcon, WhatsAppIcon } from './icons'
-import { footer, links } from '../data/content'
+import { InstagramIcon, WhatsAppIcon } from '@/components/ui/icons'
+import { footer } from '@/data/content'
+import { links } from '@/data/social'
 
 export default function Footer() {
   const year = new Date().getFullYear()

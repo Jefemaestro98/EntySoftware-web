@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowLeft, ArrowRight, X } from 'lucide-react'
-import Reveal from './Reveal'
-import SectionLabel from './SectionLabel'
-import { InstagramIcon } from './icons'
-import { gallery, links, social } from '../data/content'
+import Reveal from '@/components/ui/Reveal'
+import SectionLabel from '@/components/ui/SectionLabel'
+import { InstagramIcon } from '@/components/ui/icons'
+import { gallery } from '@/data/content'
+import { links, social } from '@/data/social'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const total = gallery.images.length
