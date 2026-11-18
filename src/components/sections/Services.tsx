@@ -1,7 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
-import Reveal from './Reveal'
-import SectionLabel from './SectionLabel'
-import { services } from '../data/content'
+import Reveal from '../ui/Reveal'
+import SectionLabel from '../ui/SectionLabel'
+import { services } from '../../data/content'
 
 export default function Services() {
   return (

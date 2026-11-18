@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { MessageCircle, Send, X } from 'lucide-react'
-import { WhatsAppIcon } from './icons'
+import { WhatsAppIcon } from './ui/icons'
 import { chatbot, links } from '../data/content'
 
 type Msg = { from: 'bot' | 'user'; text: string; whatsapp?: boolean }
